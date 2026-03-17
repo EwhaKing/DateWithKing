@@ -501,6 +501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01e78323530ab540a0ac6e57fe1ac97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  likeMessage_kor: "\uC774(/\uAC00) \uC88B\uC544\uD569\uB2C8\uB2E4."
+  dislikeMessage_kor: "\uC774(/\uAC00) \uC2EB\uC5B4\uD569\uB2C8\uB2E4."
+  likeMessage_en: ' does like.'
+  dislikeMessage_en: ' does not like.'
   runner: {fileID: 0}
   lineView: {fileID: 3893573939421498073}
   dialogueScreen: {fileID: 4394247423023704708}

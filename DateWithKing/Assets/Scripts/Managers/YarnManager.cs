@@ -4,9 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Yarn.Unity;
+using UnityEngine.Localization.Settings;
 
 public class YarnManager : SceneSingleton<YarnManager>
 {
+
+    [SerializeField]
+    private string likeMessage_kor;
+    [SerializeField]
+    private string dislikeMessage_kor;
+    [SerializeField]
+    private string likeMessage_en;
+    [SerializeField]
+    private string dislikeMessage_en;
 
     [SerializeField]
     private DialogueRunner runner;
@@ -137,8 +147,8 @@ public class YarnManager : SceneSingleton<YarnManager>
         runner.AddCommandHandler("bgm_resume", SoundManager.Instance.resumeBGM);
         runner.AddCommandHandler("choice_again", ChoiceAgain);
         runner.AddCommandHandler<string>("notice", Notice2);
-        runner.AddCommandHandler<string>("dislike", (name)=>Notice(name+"이(/가) 싫어합니다."));
-        runner.AddCommandHandler<string>("like", (name)=>Notice(name+"이(/가) 좋아합니다."));
+        runner.AddCommandHandler<string>("dislike", (name)=>Notice(name + (LocalizationSettings.SelectedLocale.Identifier.Code == "en-US" ? dislikeMessage_en : dislikeMessage_kor)));
+        runner.AddCommandHandler<string>("like", (name)=>Notice(name + (LocalizationSettings.SelectedLocale.Identifier.Code == "en-US" ? likeMessage_en : likeMessage_kor)));
         runner.AddCommandHandler<string>("show", ShowCharactor);
         runner.AddCommandHandler<string>("bg", ShowBackground);
         runner.AddCommandHandler<string>("play", SoundEffect);
